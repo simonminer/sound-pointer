@@ -16,7 +16,7 @@
             const panWidth = maxRightPan - maxLeftPan;
 
             const minVolume = 0.1;
-            const maxVolume = 1;
+            const maxVolume = 0.5;
             const volumeRange = maxVolume - minVolume;
 
             const soundType = "sine";
@@ -40,7 +40,7 @@
 
             function getCurrentVolume(horizontalPosition) {
                 const width = window.innerWidth;
-                const volume = horizontalPosition / width;
+                const volume = horizontalPosition / width * volumeRange + minVolume;
                 return parseFloat(volume.toFixed(3));
             }
          
