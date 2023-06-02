@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Pointer Finder POC</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"></script>
+    </head>
+    <body>
+        <h1>Pointer Finder POC</h1>
+        <p><span id="mouse-position"></span></p>
+        <script>
+            const minFrequency = 220;
+            const maxFrequency = 880;
+            const frequencyCount = maxFrequency - minFrequency;
+
+            const maxLeftPan = -1;
+            const maxRightPan = 1;
+            const panWidth = maxRightPan - maxLeftPan;
+
+            const soundType = "sine";
+            const soundVolume = 0.3;
+            let sound = new Pizzicato.Sound({
+                source: "wave",
+                options: {
+                    type: soundType,
+                    volume: soundVolume
+                }
+            });
+            isSoundPlaying = false;
+
+            const mousePositionText = document.getElementById('mouse-position');
+            let mousePosition = { x: undefined, y: undefined };
+
+            function getCurrentFrequency(verticalPosition) {
+                const height = window.innerHeight;
+                const frequency =
+                    ((height - verticalPosition) / height * frequencyCount) 
+                    + minFrequency;
+                return parseInt(frequency);
+            }
+
+            function getCurrentPan(horizontalPosition) {
+                const width = window.innerWidth;
+                const pan = horizontalPosition / width * panWidth + maxLeftPan;
+                return pan.toFixed(3);
+            }
+
+
+            addEventListener('mousemove', (event) => {
+                mousePosition = { x: event.clientX, y: event.clientY };
+                const frequency = getCurrentFrequency(mousePosition.y);
+                const pan = getCurrentPan(mousePosition.x);
+                sound.pan = pan;
+                sound.frequency = frequency;
+                mousePositionText.textContent = `x: ${mousePosition.x}, y: ${mousePosition.y}, pan: ${pan}, frequency: ${frequency} Hz)`;
+            });
+
+            addEventListener("click", () => {
+                isSoundPlaying ? sound.stop() : sound.play();
+                isSoundPlaying = !isSoundPlaying;
+            });
+
+            addEventListener("resize", () => {
+
+            })
+        </script>
+    </body>
+</html>
