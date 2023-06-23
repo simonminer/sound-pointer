@@ -1,0 +1,34 @@
+{
+  "name": "sound-pointer",
+  "version": "1.0.0",
+  "description": "Use sound to track your mouse pointer in the browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonminer/sound-pointer.git"
+  },
+  "keywords": [
+    "mouse",
+    "pointer",
+    "sound",
+    "browser",
+    "locate"
+  ],
+  "author": "Simon Miner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonminer/sound-pointer/issues"
+  },
+  "homepage": "https://github.com/simonminer/sound-pointer#readme",
+  "dependencies": {
+    "pizzicato": "^0.6.4"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "webpack": "^5.88.0"
+  }
+}
