@@ -1,10 +1,28 @@
 <html>
     <head>
-        <title>Pointer Finder POC</title>
+        <title>Sound Pointer</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"></script>
+        <style type="text/css">
+            body {
+                margin: auto;
+                padding: 1%;
+                font-family: Helvetica, Arial, sans-serif;
+                max-width: 800px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Pointer Finder POC</h1>
+        <h1>Sound Pointer</h1>
+        <h2>User sound to track your mouse pointer in the browser.</h2>
+        <ul>
+            <li>Click or tap to turn the sound on and off.</li>
+            <li>Move the mouse to hear the locater frequency.
+                <ul>
+                    <li>Moving the mouse up and down raise or lowers the pitch.</li>
+                    <li>Moving the mouse left or right pans the sound in that direction. The sound volume also decreases and increases as the mouse moves left or right.</li>
+                </ul>    
+        </ul>
+        <h2>Mouse Pointer Details</h2>
         <p><span id="mouse-position"></span></p>
         <script>
             const minFrequency = 220;
