@@ -159,23 +159,32 @@ export class SoundPointer {
   }
 
   /**
-   * Create a SoundPointer object in the browser window.
-   * configure it appropriately for clicking/tapping and
-   * mouse movement.
-   * @returns {SoundPointer}
+   * Event listener function to handle the click
+   * event to toggle the sound.
+   */
+  static handleClick() {
+    document.soundPointer.toggleSound();
+  }
+
+  /**
+   * Event listener function to handle mouse move
+   * events that update the sound pointer tone based
+   * on the mouse position.
+   */
+  static handleMouseMove() {
+    document.soundPointer.updateSoundForMousePosition(
+      event.clientX,
+      event.clientY
+    );
+  }
+
+  /**
+   * Configure the SoundPointer appropriately for clicking/
+   * and mouse movement.
    */
   setup() {
-    window.soundPointer = this;
-
-    addEventListener("click", () => {
-      window.soundPointer.toggleSound();
-    });
-    addEventListener("mousemove", (event) => {
-      window.soundPointer.updateSoundForMousePosition(
-        event.clientX,
-        event.clientY
-      );
-    });
+    addEventListener("click", SoundPointer.handleClick);
+    addEventListener("mousemove", SoundPointer.handleMouseMove);
   }
 
   /**
@@ -186,5 +195,7 @@ export class SoundPointer {
     if (this.isSoundPlaying) {
       this.toggleSound();
     }
+    removeEventListener("click", SoundPointer.handleClick);
+    removeEventListener("mousemove", SoundPointer.handleMouseMove);
   }
 }
