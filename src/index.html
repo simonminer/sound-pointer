@@ -1,41 +1,49 @@
 <html>
-    <head>
-        <title>Sound Pointer</title>
-        <style type="text/css">
-            body {
-                margin: auto;
-                padding: 5%;
-                font-family: Helvetica, Arial, sans-serif;
-                max-width: 750px;
-            }
-            ul {
-                line-height: 2rem;
-                margin-inline-start: -20px;
-                list-style-type: disc;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <img
-                src="assets/sound-pointer.png"
-                alt="Sound Pointer Logo"
-                style="float: right; width: 100px"
-            />
-            <h1>Sound Pointer</h1>
-        </header>
-        <h2>User sound to track your mouse pointer in the browser.</h2>
+  <head>
+    <title>Sound Pointer</title>
+    <style type="text/css">
+      body {
+        margin: auto;
+        padding: 5%;
+        font-family: Helvetica, Arial, sans-serif;
+        max-width: 750px;
+      }
+      ul {
+        line-height: 2rem;
+        margin-inline-start: -20px;
+        list-style-type: disc;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="assets/sound-pointer.png"
+        alt="Sound Pointer Logo"
+        style="float: right; width: 100px"
+      />
+      <h1>Sound Pointer</h1>
+    </header>
+    <h2>User sound to track your mouse pointer in the browser.</h2>
+    <ul>
+      <li>Click or tap to turn the sound on and off.</li>
+      <li>
+        Move the mouse to hear the locater frequency.
         <ul>
-            <li>Click or tap to turn the sound on and off.</li>
-            <li>Move the mouse to hear the locater frequency.
-                <ul>
-                    <li>Moving the mouse up and down raise or lowers the pitch.</li>
-                    <li>Moving the mouse left or right pans the sound in that direction. The sound volume also decreases and increases as the mouse moves left or right.</li>
-                </ul>    
+          <li>Moving the mouse up and down raise or lowers the pitch.</li>
+          <li>
+            Moving the mouse left or right pans the sound in that direction. The
+            sound volume also decreases and increases as the mouse moves left or
+            right.
+          </li>
         </ul>
-        <script>
-            window.onload = (event) => { window.soundPointer.setup(); }
+      </li>
+    </ul>
 
-        </script>
-    </body>
+    <script>
+      window.onload = (event) => {
+        window.soundPointer.setup();
+      };
+    </script>
+  </body>
 </html>
