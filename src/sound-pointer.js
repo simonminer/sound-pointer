@@ -176,4 +176,14 @@ export class SoundPointer {
       );
     });
   }
+
+  /**
+   * Cleans up the resources used by this class.
+   * - Makes sure the sound has stopped playing.
+   */
+  teardown() { 
+    if (this.isSoundPlaying) {
+      this.toggleSound();
+    }
+  }
 }
