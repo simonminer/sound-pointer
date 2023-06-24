@@ -57,7 +57,6 @@ export class SoundPointer {
      * @returns {Pizzicato} the PIzzicato sound object.
      */
     buildSound() {
-        console.log(Pizzicato.volume + " is the volume");
         // Create the sound object with the object's
         // sound type and minimum volume.
         new Pizzicato.Sound();
@@ -151,8 +150,25 @@ export class SoundPointer {
         // Adjust the pitch of the sound based on
        // the vertical position of the mouse pointer.
         const frequency = this.getCurrentFrequency(this.mousePosition.y);
-        sound.frequency = frequency;
+        this.sound.frequency = frequency;
         
         return this.mousePosition;
     };
+
+    /**
+     * Create a SoundPointer object in the browser window.
+     * configure it appropriately for clicking/tapping and
+     * mouse movement.
+     * @returns {SoundPointer}
+     */
+    setup() {
+        window.soundPointer = this;
+
+        addEventListener("click", () => {
+            window.soundPointer.toggleSound();
+        });
+        addEventListener("mousemove", (event) => {
+            window.soundPointer.updateSoundForMousePosition(event.clientX, event.clientY);
+        });
+    }
 }
