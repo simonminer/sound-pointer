@@ -1,3 +1,5 @@
+<img src="src/assets/sound-pointer.png" alt="Site Unseen Logo" style="float:right;width:100px" />
+
 # Sound Pointer
 
 Use sound to track your mouse pointer in the browser.
