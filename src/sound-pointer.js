@@ -46,6 +46,7 @@ export class SoundPointer {
    */
   constructor() {
     this.sound = this.buildSound();
+    document.soundPointer = this;
   }
 
   /**
