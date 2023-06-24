@@ -1,18 +1,29 @@
 <html>
     <head>
         <title>Sound Pointer</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"></script>
         <style type="text/css">
             body {
                 margin: auto;
-                padding: 1%;
+                padding: 5%;
                 font-family: Helvetica, Arial, sans-serif;
-                max-width: 800px;
+                max-width: 750px;
+            }
+            ul {
+                line-height: 2rem;
+                margin-inline-start: -20px;
+                list-style-type: disc;
             }
         </style>
     </head>
     <body>
-        <h1>Sound Pointer</h1>
+        <header>
+            <img
+                src="assets/sound-pointer.png"
+                alt="Sound Pointer Logo"
+                style="float: right; width: 100px"
+            />
+            <h1>Sound Pointer</h1>
+        </header>
         <h2>User sound to track your mouse pointer in the browser.</h2>
         <ul>
             <li>Click or tap to turn the sound on and off.</li>
@@ -22,10 +33,9 @@
                     <li>Moving the mouse left or right pans the sound in that direction. The sound volume also decreases and increases as the mouse moves left or right.</li>
                 </ul>    
         </ul>
-        <h2>Mouse Pointer Details</h2>
-        <p><span id="mouse-position"></span></p>
         <script>
             window.onload = (event) => { window.soundPointer.setup(); }
+
         </script>
     </body>
 </html>
