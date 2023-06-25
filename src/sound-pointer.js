@@ -171,7 +171,7 @@ export class SoundPointer {
    * events that update the sound pointer tone based
    * on the mouse position.
    */
-  static handleMouseMove() {
+  static handleMouseMove(event) {
     document.soundPointer.updateSoundForMousePosition(
       event.clientX,
       event.clientY
