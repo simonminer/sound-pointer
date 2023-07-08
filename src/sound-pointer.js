@@ -6,6 +6,7 @@
 
 // import Pizzicato from "pizzicato";
 import Pizzicato from "pizzicato";
+import { doc } from "prettier";
 
 export class SoundPointer {
   minFrequency = 220;
@@ -179,13 +180,30 @@ export class SoundPointer {
   }
 
   /**
+   * Event listener to handle keyboard commands.
+   * 
+   * * Control+Shift+P/Command+Shift+P - Stop the sound
+   * 
+   */
+  static handleKeyboardCommand(event) {
+    // Make sure the sound stops on Ctrl/Cmd+Shift+P.
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.keyCode === 80) {
+      if (document.soundPointer.isSoundPlaying) { 
+        document.soundPointer.toggleSound();
+      }
+    }
+  }
+
+  /**
    * Configure the SoundPointer appropriately for clicking/
    * and mouse movement.
    */
   setup() {
     addEventListener("click", SoundPointer.handleClick);
     addEventListener("mousemove", SoundPointer.handleMouseMove);
+    addEventListener("keydown", SoundPointer.handleKeyboardCommand);
   }
+
 
   /**
    * Cleans up the resources used by this class.

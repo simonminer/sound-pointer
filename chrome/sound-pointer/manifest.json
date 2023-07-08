@@ -1,6 +1,6 @@
 {
     "name": "Sound Pointer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Use sound to track  your mouse pointer in the browser",
     "manifest_version": 3,
     "author": "Simon Miner",
